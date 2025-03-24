@@ -1,0 +1,7 @@
+=== Conversation Transcript ===
+
+[microphone] Suresh: I am Suresh. How can I help you?
+[microphone] John: I am John. Ned.
+[microphone] Suresh: Do you have all the documents required for the essay?
+[microphone] John: Yes. You have?
+[microphone] Suresh: Thank you.

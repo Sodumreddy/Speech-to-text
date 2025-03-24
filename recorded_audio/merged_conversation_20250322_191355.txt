@@ -1,0 +1,7 @@
+=== Merged Conversation ===
+
+[microphone] Speaker A: Suresh. How can I help you today?
+[microphone] John: I am John. Need help with medical.
+[microphone] Speaker A: Okay. Do you have the apartment?
+[microphone] John: Yes.
+[microphone] Speaker A: Okay, thank you.

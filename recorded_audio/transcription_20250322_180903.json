@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-03-22 18:09:09.855163",
+  "audio_file": "recorded_audio/recording_20250322_180903.wav",
+  "transcription": "I am Manoj. How can I help you today? Hello, I am Mark. How can I help you? I need help with SSN application. Sure I can help you.",
+  "utterances": [
+    {
+      "speaker": "B",
+      "text": "I am manoj. How can I help you today?",
+      "start": 1120,
+      "end": 4020
+    },
+    {
+      "speaker": "A",
+      "text": "Hello, I am mark. How can I help you?",
+      "start": 8000,
+      "end": 10180
+    },
+    {
+      "speaker": "B",
+      "text": "I need help with ssn application.",
+      "start": 12080,
+      "end": 15580
+    },
+    {
+      "speaker": "A",
+      "text": "Sure I can help.",
+      "start": 24240,
+      "end": 25112
+    }
+  ],
+  "speaker_mapping": {
+    "B": "Manoj",
+    "A": "Mark"
+  },
+  "_id": "67df43156c968d4cfd722f94"
+}

@@ -1,0 +1,9 @@
+Full Transcription:
+Hello, I am Manoj. How can I help you today? I am John Need help with medical. Did you book an appointment? Yes, I do. I will consult with doctor.
+
+Transcription with speakers:
+Manoj: Hello, I am Manoj. How can I help you today?
+John: I am John. Need help with medical.
+Manoj: Did you book an appointment?
+John: Yes, I do.
+Manoj: Okay. I will consult with doctor.

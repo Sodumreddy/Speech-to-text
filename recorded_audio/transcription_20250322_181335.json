@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-03-22 18:13:48.652941",
+  "audio_file": "recorded_audio/recording_20250322_181335.wav",
+  "transcription": "Hello, I am Manoj. How can I help you today? I am Mark need help with SSN. Do you have all the documents required for the SSN? Yes I have. Could you provide me passport and offer letter from your employer? Yes, there it is. Okay, thank you.",
+  "utterances": [
+    {
+      "speaker": "A",
+      "text": "Hello, I am Manoj. How can I help you today? I am Mark. Need help with ssn? Do you have all the documents required for the ssn? Yes, I have. Could you provide me passport and offer letter from your employer? Here it is. Okay. Thank you.",
+      "start": 2880,
+      "end": 49310
+    }
+  ],
+  "speaker_mapping": {
+    "A": "Manoj"
+  },
+  "_id": "67df442caa77a7ab28a39cdb"
+}

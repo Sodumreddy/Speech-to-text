@@ -1,0 +1,58 @@
+{
+  "timestamp": "2025-03-22T19:21:05.519842",
+  "conversation": [
+    {
+      "source": "call",
+      "speaker": "Now",
+      "text": "Noach. How can I help you today?",
+      "start_time": 320,
+      "end_time": 3220
+    },
+    {
+      "source": "call",
+      "speaker": "Sure",
+      "text": "I am sure I should need help with education.",
+      "start_time": 5040,
+      "end_time": 7060
+    },
+    {
+      "source": "call",
+      "speaker": "Now",
+      "text": "Kind of education are you looking for? Is it bachelor's or master?",
+      "start_time": 8480,
+      "end_time": 13180
+    },
+    {
+      "source": "call",
+      "speaker": "Sure",
+      "text": "Master's degree.",
+      "start_time": 19760,
+      "end_time": 21020
+    },
+    {
+      "source": "call",
+      "speaker": "Now",
+      "text": "Now the transcripts for bachelor's degree.",
+      "start_time": 21520,
+      "end_time": 24620
+    },
+    {
+      "source": "call",
+      "speaker": "Sure",
+      "text": "Yes.",
+      "start_time": 28170,
+      "end_time": 28450
+    }
+  ],
+  "speaker_mappings": {
+    "microphone": {},
+    "call": {
+      "A": "Now",
+      "B": "Sure"
+    }
+  },
+  "files": {
+    "transcript": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192105.txt",
+    "audio": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192105.wav"
+  }
+}

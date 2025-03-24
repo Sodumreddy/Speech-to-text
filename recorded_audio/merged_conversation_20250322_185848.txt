@@ -1,0 +1,12 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help you today?
+[call] Manoj: I am Manoj. How can I help you today?
+[microphone] John: I am John. Need help with ssn.
+[call] John: I am John. Need help with ssn.
+[microphone] Manoj: Do you have all the documents required for the ssn?
+[call] Manoj: Do you have all the documents required for the ssn?
+[microphone] John: Yes, I have.
+[call] John: Yes, I have.
+[microphone] Manoj: Please provide me the. Thank you.
+[call] Manoj: Please provide me the. Thank you.

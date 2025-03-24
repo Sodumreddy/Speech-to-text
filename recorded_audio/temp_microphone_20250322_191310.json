@@ -1,0 +1,9 @@
+{
+  "timestamp": "20250322_191310",
+  "source": "microphone",
+  "text": "I'm Suresh, how can I help you today?",
+  "files": {
+    "wav": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/temp_microphone_20250322_191310.wav",
+    "txt": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/temp_microphone_20250322_191310.txt"
+  }
+}

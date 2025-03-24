@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-03-22 18:38:22.523671",
+  "audio_file": "recorded_audio/recording_20250322_183814.wav",
+  "transcription": "Hello, I am Manoj. How can I help you today? I am John Need help with medical. Did you book an appointment? Yes, I do. I will consult with doctor.",
+  "utterances": [
+    {
+      "speaker": "A",
+      "text": "Hello, I am Manoj. How can I help you today?",
+      "start": 2400,
+      "end": 5940
+    },
+    {
+      "speaker": "B",
+      "text": "I am John. Need help with medical.",
+      "start": 16880,
+      "end": 18740
+    },
+    {
+      "speaker": "A",
+      "text": "Did you book an appointment?",
+      "start": 20800,
+      "end": 22700
+    },
+    {
+      "speaker": "B",
+      "text": "Yes, I do.",
+      "start": 28380,
+      "end": 29600
+    },
+    {
+      "speaker": "A",
+      "text": "Okay. I will consult with doctor.",
+      "start": 30780,
+      "end": 33540
+    }
+  ],
+  "speaker_mapping": {
+    "A": "Manoj",
+    "B": "John"
+  },
+  "_id": "67df49ee6a881068f61d1f96"
+}

@@ -1,0 +1,55 @@
+{
+  "timestamp": "2025-03-22T19:13:55.595093",
+  "conversation": [
+    {
+      "source": "microphone",
+      "speaker": "Speaker A",
+      "text": "Suresh. How can I help you today?",
+      "start_time": 400,
+      "end_time": 2340
+    },
+    {
+      "source": "microphone",
+      "speaker": "John",
+      "text": "I am John. Need help with medical.",
+      "start_time": 8720,
+      "end_time": 10580
+    },
+    {
+      "source": "microphone",
+      "speaker": "Speaker A",
+      "text": "Okay. Do you have the apartment?",
+      "start_time": 12480,
+      "end_time": 16940
+    },
+    {
+      "source": "microphone",
+      "speaker": "John",
+      "text": "Yes.",
+      "start_time": 25370,
+      "end_time": 26082
+    },
+    {
+      "source": "microphone",
+      "speaker": "Speaker A",
+      "text": "Okay, thank you.",
+      "start_time": 26226,
+      "end_time": 27050
+    }
+  ],
+  "speaker_mappings": {
+    "microphone": {
+      "A": "Speaker A",
+      "B": "John"
+    },
+    "call": {
+      "A": "Speaker A",
+      "B": "John"
+    }
+  },
+  "files": {
+    "transcript": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/merged_conversation_20250322_191355.txt",
+    "microphone_wav": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/microphone_20250322_191355.wav",
+    "call_wav": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/call_20250322_191355.wav"
+  }
+}

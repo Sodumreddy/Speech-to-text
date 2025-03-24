@@ -1,0 +1,9 @@
+{
+  "timestamp": "20250322_191320",
+  "source": "microphone",
+  "text": "I am John need help with medical.",
+  "files": {
+    "wav": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/temp_microphone_20250322_191320.wav",
+    "txt": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/temp_microphone_20250322_191320.txt"
+  }
+}
