@@ -1,0 +1,36 @@
+{
+  "timestamp": "2025-03-22T19:06:02.439170",
+  "conversation": [
+    {
+      "source": "microphone",
+      "speaker": "Suresh",
+      "text": "I am Suresh. How can I help you today?",
+      "start_time": 2000,
+      "end_time": 4580
+    },
+    {
+      "source": "microphone",
+      "speaker": "John",
+      "text": "I am John. Need help with ssn.",
+      "start_time": 17040,
+      "end_time": 19260
+    },
+    {
+      "source": "microphone",
+      "speaker": "Suresh",
+      "text": "Do you have all the documents required for the ssn? Okay, thank you.",
+      "start_time": 21760,
+      "end_time": 38650
+    }
+  ],
+  "speaker_mappings": {
+    "microphone": {
+      "A": "Suresh",
+      "B": "John"
+    },
+    "call": {
+      "A": "Suresh",
+      "B": "John"
+    }
+  }
+}

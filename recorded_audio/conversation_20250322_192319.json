@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-03-22T19:23:19.203297",
+  "conversation": [
+    {
+      "source": "call",
+      "speaker": "Do",
+      "text": "I am John. How can I help?",
+      "start_time": 960,
+      "end_time": 4660
+    },
+    {
+      "source": "call",
+      "speaker": "Sure",
+      "text": "I am sure I should help with it.",
+      "start_time": 7360,
+      "end_time": 9300
+    },
+    {
+      "source": "call",
+      "speaker": "Do",
+      "text": "Okay. What kind of you are looking for? Is it bachelor's or master's degree?",
+      "start_time": 11280,
+      "end_time": 17340
+    },
+    {
+      "source": "call",
+      "speaker": "Sure",
+      "text": "Master's degree.",
+      "start_time": 22240,
+      "end_time": 23580
+    },
+    {
+      "source": "call",
+      "speaker": "Do",
+      "text": "Do you have transcripts for bachelor's degree? Okay, thank you.",
+      "start_time": 25450,
+      "end_time": 35210
+    }
+  ],
+  "speaker_mappings": {
+    "microphone": {},
+    "call": {
+      "A": "Do",
+      "B": "Sure"
+    }
+  },
+  "files": {
+    "transcript": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192319.txt",
+    "audio": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192319.wav"
+  }
+}

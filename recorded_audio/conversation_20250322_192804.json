@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-03-22T19:28:04.080335",
+  "conversation": [
+    {
+      "source": "microphone",
+      "speaker": "Suresh",
+      "text": "I am Suresh. How can I help you?",
+      "start_time": 11920,
+      "end_time": 13420
+    },
+    {
+      "source": "microphone",
+      "speaker": "John",
+      "text": "I am John. Ned.",
+      "start_time": 13760,
+      "end_time": 17260
+    },
+    {
+      "source": "microphone",
+      "speaker": "Suresh",
+      "text": "Do you have all the documents required for the essay?",
+      "start_time": 23440,
+      "end_time": 24520
+    },
+    {
+      "source": "microphone",
+      "speaker": "John",
+      "text": "Yes. You have?",
+      "start_time": 24640,
+      "end_time": 25040
+    },
+    {
+      "source": "microphone",
+      "speaker": "Suresh",
+      "text": "Thank you.",
+      "start_time": 24640,
+      "end_time": 25040
+    }
+  ],
+  "speaker_mappings": {
+    "microphone": {
+      "A": "Suresh",
+      "B": "John"
+    },
+    "call": {}
+  },
+  "files": {
+    "transcript": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192804.txt",
+    "audio": "/Users/manojkumarreddysodum/Desktop/tts/recorded_audio/conversation_20250322_192804.wav"
+  }
+}

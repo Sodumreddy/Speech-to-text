@@ -1,0 +1,7 @@
+=== Conversation Transcript ===
+
+[call] Do: I am John. How can I help?
+[call] Sure: I am sure I should help with it.
+[call] Do: Okay. What kind of you are looking for? Is it bachelor's or master's degree?
+[call] Sure: Master's degree.
+[call] Do: Do you have transcripts for bachelor's degree? Okay, thank you.
