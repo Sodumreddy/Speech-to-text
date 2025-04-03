@@ -1,0 +1,23 @@
+=== Merged Conversation ===
+
+[microphone] Suresh: I am Suresh. How can I help you today?
+Keywords: help (0.29), today (0.34), suresh (0.44)
+
+[microphone] David: Hello, I am David. Need help with Social Security and job search for machine learning Engineer.
+Keywords: david need (0.19), learning engineer (0.33), social security (0.43)
+
+[microphone] Suresh: May I know your qualifications?
+Keywords: know (0.19), qualifications (0.76), know qualifications (0.79)
+
+[microphone] David: I have bachelor's degree in computer science.
+Keywords: science (0.21), computer (0.30), bachelor degree (0.55)
+
+[microphone] Suresh: When did you graduated?
+Keywords: did (0.18), did graduated (0.71), graduated (0.76)
+
+[microphone] David: I graduated in 2023.
+Keywords: 2023 (0.57), graduated (0.69), graduated 2023 (0.87)
+
+[microphone] Suresh: Okay, that good to know. I will reach out to you later.
+Keywords: reach (0.27), later (0.30), good know (0.39)
+

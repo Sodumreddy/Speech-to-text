@@ -1,0 +1,22 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help you today?
+Keywords: help (0.28), today (0.32), manoj (0.60)
+
+[microphone] John: I am John. Need help with ssn.
+Keywords: need (0.10), john (0.39), help ssn (0.86)
+
+[microphone] Manoj: Do you have all the documents required for the ssn?
+Keywords: required (0.21), documents (0.38), ssn (0.62)
+
+[microphone] John: Yes, I have. What do you need?
+Keywords: yes (0.24), need (0.26), yes need (0.48)
+
+[microphone] Manoj: I need passport and offer letter from your employer.
+Keywords: offer (0.16), letter employer (0.55), need passport (0.69)
+
+[microphone] John: Here it is.
+
+[microphone] Manoj: Okay. Thank you. Have a good day.
+Keywords: good (0.21), day (0.26), okay thank (0.38)
+

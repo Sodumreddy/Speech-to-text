@@ -1,0 +1,28 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help you today?
+Keywords: help (0.28), today (0.32), manoj (0.60)
+
+[microphone] Suresh: I am Suresh. Can you help with SSN application?
+Keywords: help (0.13), suresh (0.16), ssn application (0.84)
+
+[microphone] Manoj: Do you have all the documents required for the ssn?
+Keywords: required (0.21), documents (0.38), ssn (0.62)
+
+[microphone] Suresh: Yes, I have.
+
+[microphone] Manoj: Okay. Who is your employer?
+Keywords: okay (0.13), okay employer (0.69), employer (0.74)
+
+[microphone] Suresh: My employer is S Bank.
+Keywords: employer (0.55), bank (0.57), employer bank (0.80)
+
+[microphone] Manoj: That's great.
+
+[microphone] Suresh: When can I expect ssn?
+Keywords: expect (0.20), ssn (0.67), expect ssn (0.74)
+
+[microphone] Manoj: That would be in two weeks.
+
+[microphone] Suresh: It.
+

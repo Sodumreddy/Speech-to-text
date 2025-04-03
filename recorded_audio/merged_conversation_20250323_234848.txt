@@ -1,0 +1,12 @@
+=== Merged Conversation ===
+
+[microphone] Good: Manoj. How can I help you today?
+Keywords: help (0.30), today (0.34), manoj (0.60)
+
+[microphone] Manoi: Here. Manoi speaking. How are you?
+Keywords: speaking (0.38), manoi (0.66), manoi speaking (0.74)
+
+[microphone] Good: I am good. How are you?
+
+[microphone] Manoi: Thank you. Here it is.
+

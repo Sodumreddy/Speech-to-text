@@ -1,0 +1,23 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: Hello, I am Manoj. How can I help you today?
+Keywords: help (0.26), today (0.33), manoj (0.58)
+
+[microphone] John: I am John. Need help with SSN and medical.
+Keywords: need (0.10), medical (0.19), help ssn (0.72)
+
+[microphone] Manoj: Okay. Do you have all the documents required for the SSN on doctor appointment for the medical.
+Keywords: okay (0.11), appointment medical (0.39), required ssn (0.56)
+
+[microphone] John: Yes, I have documents and also appointment for medical.
+Keywords: yes (0.24), documents (0.41), appointment medical (0.52)
+
+[microphone] Manoj: Okay. Please submit me the documents and what time you have appointment for the doctor.
+Keywords: okay (0.17), doctor (0.34), submit documents (0.38)
+
+[microphone] John: Here it is. And 10:30am I have appointment.
+Keywords: 10 (0.18), 30am (0.50), appointment (0.63)
+
+[microphone] Manoj: Okay. Thank you.
+Keywords: thank (0.27), okay (0.36), okay thank (0.64)
+
