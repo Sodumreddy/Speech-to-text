@@ -1,0 +1,10 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help you today? May I know your qualifications? When did you graduated? Okay, I have your information.
+Keywords: know qualifications (0.34), help today (0.35), manoj (0.57)
+
+[microphone] Speaker B: I can reach out you later.
+Keywords: reach (0.35), later (0.48), reach later (0.52)
+
+[microphone] Manoj: Thank you.
+

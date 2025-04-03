@@ -1,0 +1,26 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help.
+Keywords: help (0.32), manoj (0.71), manoj help (0.79)
+
+[microphone] Speaker B: You today? Do you have.
+
+[microphone] Manoj: All the documents required for the.
+Keywords: required (0.22), documents (0.59), documents required (0.75)
+
+[microphone] Speaker B: Ssn?
+
+[microphone] Manoj: Who is your.
+
+[microphone] Speaker B: Employer, by the way?
+Keywords: way (0.24), employer (0.68), employer way (0.78)
+
+[microphone] Manoj: Okay, that's good to know. That would be.
+Keywords: good (0.24), know (0.28), okay (0.35)
+
+[microphone] Speaker B: Within two weeks.
+
+[microphone] Manoj: After.
+
+[microphone] Speaker B: Your application.
+

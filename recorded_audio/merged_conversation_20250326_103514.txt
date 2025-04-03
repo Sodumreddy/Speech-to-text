@@ -1,0 +1,42 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: I am Manoj. How can I help you today?
+Keywords: help (0.28), today (0.32), manoj (0.60)
+
+[call] Manoj: I am Manoj. How can I help you today?
+Keywords: help (0.28), today (0.32), manoj (0.60)
+
+[microphone] John: I am John. Need help with job search.
+Keywords: help (0.09), john (0.48), job search (0.68)
+
+[call] John: I am John. Need help with job search.
+Keywords: help (0.09), john (0.48), job search (0.68)
+
+[microphone] Manoj: What kind of job you are looking for?
+Keywords: kind (0.24), looking (0.30), job (0.48)
+
+[call] Manoj: What kind of job you are looking for?
+Keywords: kind (0.24), looking (0.30), job (0.48)
+
+[microphone] John: I am looking for software job.
+Keywords: looking (0.26), software (0.47), software job (0.80)
+
+[call] John: I am looking for software job.
+Keywords: looking (0.26), software (0.47), software job (0.80)
+
+[microphone] Manoj: What is your qualifications?
+
+[call] Manoj: What is your qualifications?
+
+[microphone] John: I have Bachelor's in cse.
+Keywords: bachelor (0.54), cse (0.60), bachelor cse (0.84)
+
+[call] John: I have Bachelor's in cse.
+Keywords: bachelor (0.54), cse (0.60), bachelor cse (0.84)
+
+[microphone] Manoj: Okay. Thank you.
+Keywords: thank (0.27), okay (0.36), okay thank (0.64)
+
+[call] Manoj: Okay. Thank you.
+Keywords: thank (0.27), okay (0.36), okay thank (0.64)
+

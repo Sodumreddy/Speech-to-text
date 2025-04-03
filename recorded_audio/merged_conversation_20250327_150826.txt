@@ -1,0 +1,20 @@
+=== Merged Conversation ===
+
+[microphone] Manoj: Numbers are called which which voice we are detecting? The zoom call or the aggregate voice multi output. So here I have chosen the number four on it started recognizing. Hey, I am Manoj. How can I help you? Today someone can start speaking so that it will be able to.
+Keywords: multi output (0.29), number started (0.37), detecting zoom (0.38)
+
+[microphone] Start: Does that mean if I start speaking here so it will be able to extract keyword out of my spoken sentences, right?
+Keywords: right (0.05), extract keyword (0.51), start speaking (0.51)
+
+[microphone] Manoj: Yes professor. But it doesn't do the label because like you didn't introduce yourself. So it will just assign the speaker instead of your name.
+Keywords: like didn (0.03), label (0.36), assign speaker (0.46)
+
+[microphone] Start: So how about if I start saying hi my name is Manander here. So will it also be able to assign previous speaker to Manander? Now.
+Keywords: saying hi (0.25), assign previous (0.32), manander able (0.33)
+
+[microphone] Manoj: First will it will assign the speaker. Then later it will assign your name. Then afterwards from now if you are talking then it will recognize your name.
+Keywords: later (0.10), recognize (0.31), assign speaker (0.64)
+
+[microphone] Start: Okay, I would like to see this in action.
+Keywords: like (0.20), okay (0.39), action (0.41)
+
