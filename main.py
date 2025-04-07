@@ -21,7 +21,7 @@ async def voice(request: Request):
     response.say("Welcome to the transcription service. Connecting your call now.")
     
     # Twilio starts streaming audio to our WebSocket
-    response.start().stream(url="wss://e6f3-50-96-155-176.ngrok-free.app/ws/transcription")
+    response.start().stream(url="wss://20b6-50-96-155-176.ngrok-free.app/ws/transcription")
     
     # Dial the recipient's phone number
     response.dial("17633369510")  # Replace with your destination number
