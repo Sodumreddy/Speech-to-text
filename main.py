@@ -24,7 +24,7 @@ async def voice(request: Request):
     response.start().stream(url="wss://speech-to-text-xu54.onrender.com/ws/transcription")
     
     # Dial the recipient's phone number
-    response.dial("17633369510")  # Replace with your destination number
+    response.dial("13203396951")  # Replace with your destination number
 
     return Response(content=str(response), media_type="application/xml")
 
