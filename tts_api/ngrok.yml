@@ -1,0 +1,7 @@
+authtoken: 2syLTH4JniIBTNGjGSqJ6Vt52cQ_7vpToaxLr7wBLowK56D5n
+version: 2
+tunnels:
+  fastapi:
+    addr: 8000
+    proto: http
+    domain: your-reserved-domain.ngrok.io  # You'll get this from ngrok Pro 

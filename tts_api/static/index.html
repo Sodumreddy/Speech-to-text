@@ -56,6 +56,9 @@
         button.stop {
             background-color: #f44336;
         }
+        .record-btn {
+            background-color: #ff5722;
+        }
         button:hover {
             opacity: 0.9;
         }
@@ -131,270 +134,1275 @@
             margin: 10px 0;
             font-family: monospace;
         }
+        .note {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e6f7ff;
+            border-left: 4px solid #1890ff;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .recording {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .recording h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .recording button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            width: auto;
+        }
+        .recording button:hover {
+            background-color: #45a049;
+        }
+        
+        /* Recording status styles */
+        #recording-status {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        /* New styles for topics and improved visualization */
+        .topics-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .topic-bubble {
+            padding: 8px 15px;
+            background-color: #5e72e4;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+        .topic-bubble:hover {
+            transform: scale(1.05);
+            background-color: #324cdd;
+        }
+        .topic-bubble[data-count="high"] {
+            background-color: #2dce89;
+            font-size: 16px;
+        }
+        .topic-bubble[data-count="medium"] {
+            background-color: #11cdef;
+            font-size: 14px;
+        }
+        .topic-bubble[data-count="low"] {
+            background-color: #fb6340;
+            font-size: 12px;
+        }
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .tab-button {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: auto;
+            margin: 0;
+            color: #333;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .speaker-badge {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .transcript-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .search-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .search-controls button {
+            width: auto;
+        }
+        .clear-btn {
+            background-color: #f44336;
+        }
+        /* Styles for insights */
+        .insights-container {
+            margin-top: 15px;
+        }
+        .insight {
+            background-color: #f8f9fa;
+            border-left: 4px solid #5e72e4;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        .insight-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #5e72e4;
+        }
+        .insight-query {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .insight-response {
+            line-height: 1.5;
+        }
+        .connection-status-container {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .status-connected {
+            color: green;
+            font-weight: bold;
+        }
+        .status-disconnected {
+            color: red;
+            font-weight: bold;
+        }
+        .back-btn {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            width: auto;
+            margin-top: 15px;
+        }
+        .back-btn:hover {
+            background-color: #5a6268;
+        }
+        
+        /* Styles for transcription view */
+        .full-transcription {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-left: 3px solid #4CAF50;
+            background-color: #f9f9f9;
+        }
+        .keywords-section {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 5px;
+        }
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
     </style>
+    <!-- Add script reference to microphone-capture.js -->
+    <script src="microphone-capture.js"></script>
 </head>
 <body>
     <h1>Speech-to-Text with Speaker Diarization</h1>
     
     <div class="container">
+        <!-- Audio Source Selection Card -->
         <div class="card">
-            <h2>Record Audio</h2>
+            <h2>Audio Input Source</h2>
             <div class="form-group">
-                <label for="device">Select Microphone:</label>
-                <select id="device"></select>
-            </div>
-            <div class="form-group">
-                <label for="extract-keywords">Extract Keywords:</label>
-                <select id="extract-keywords">
-                    <option value="true">Yes</option>
-                    <option value="false">No</option>
+                <label for="audio-source">Select Audio Source:</label>
+                <select id="audio-source" onchange="changeAudioSource()">
+                    <option value="twilio_call">Twilio Call</option>
+                    <option value="zoom">Zoom Meeting</option>
+                    <option value="teams">Microsoft Teams</option>
+                    <option value="webex">Cisco Webex</option>
+                    <option value="other">Other Source</option>
+                    <option value="microphone">Microphone</option>
                 </select>
             </div>
-            <div class="form-group">
-                <label for="top-n">Number of Keywords:</label>
-                <input type="number" id="top-n" value="3" min="1" max="10">
+            <div id="source-details" class="form-group" style="display: none;">
+                <label for="source-name">Source Name:</label>
+                <input type="text" id="source-name" placeholder="Enter a name for this source">
+                <button onclick="connectCustomSource()" style="margin-top: 10px;">Connect</button>
             </div>
-            <button id="record-btn">Start Recording</button>
-            <button id="stop-btn" class="stop" style="display: none;">Stop Recording</button>
-            <div id="timer" class="timer" style="display: none;">00:00</div>
-            <div id="recording-status" style="display: none;" class="recording">
-                <div class="recording-indicator"></div>
-                <span>Recording in progress...</span>
+            
+            <!-- Added recording controls -->
+            <div id="recording-controls" class="form-group" style="margin-top: 15px; display: none;">
+                <button id="start-recording-btn" onclick="startRecording()" class="record-btn">Start Recording</button>
+                <button id="stop-recording-btn" onclick="stopRecording()" class="stop" style="display: none;">Stop Recording</button>
+                <div id="recording-status" style="display: none;">
+                    <div class="recording">
+                        <div class="recording-indicator"></div>
+                        <span>Recording in progress...</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add connection status -->
+            <div class="connection-status-container">
+                <p>Connection: <span id="connection-status" class="status-disconnected">Disconnected</span></p>
+                <p>Status: <span id="status">Ready</span></p>
             </div>
         </div>
         
-        <div id="result-card" class="card" style="display: none;">
-            <h2>Transcription Result</h2>
-            <div id="loading" class="loading" style="display: none;">
-                <div class="spinner"></div>
-                <p>Processing audio...</p>
+        <div class="card">
+            <h2>Call Transcription</h2>
+            <div class="note">
+                <p>Calls to your Twilio number or audio from other sources will be automatically transcribed.</p>
+                <p>The transcription will appear here in real-time during the call.</p>
+                <p><strong>Your Twilio Number:</strong> <span id="twilioNumber"></span></p>
             </div>
-            <div id="result" class="result"></div>
+        </div>
+        
+        <div id="result-card" class="card">
+            <h2 id="result-title">Live Transcription</h2>
+            
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('live-tab')">Live</button>
+                <button class="tab-button" onclick="switchTab('history-tab')">History</button>
+            </div>
+            
+            <div id="live-tab" class="tab-content active">
+                <div id="loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Waiting for audio input...</p>
+                </div>
+                <div id="result" class="transcript-container">
+                    <p class="note">No active audio source. When a call or meeting starts, the transcription will appear here.</p>
+                </div>
+                <div id="keywords"></div>
+                <div id="transcription"></div>
+            </div>
+            
+            <div id="history-tab" class="tab-content">
+                <div id="call-history"></div>
+            </div>
+            
+            <div id="result-content" class="transcript-container" style="display:none;"></div>
+        </div>
+        
+        <!-- LLM Insights Card -->
+        <div class="card">
+            <h2>AI Insights</h2>
+            <div class="note">
+                <p>The AI will analyze your conversation and provide relevant insights in real-time.</p>
+            </div>
+            
+            <div id="insights-container" class="insights-container">
+                <div id="insights-loading" class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Generating insights...</p>
+                </div>
+                <div id="insights-content" class="transcript-container">
+                    <p class="note">Waiting for enough conversation to analyze...</p>
+                </div>
+                <div id="insights"></div>
+            </div>
+            
+            <!-- Ask Question Form -->
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="insight-query">Ask a question about this conversation:</label>
+                <div class="search-controls">
+                    <div class="form-group" style="flex-grow: 1; margin-bottom: 0;">
+                        <input type="text" id="insight-query" placeholder="Ask a question about the conversation...">
+                    </div>
+                    <button onclick="askInsightQuestion()">Ask</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Semantic Search Card with Improvements -->
+        <div class="card">
+            <h2>Semantic Search</h2>
+            
+            <div class="search-controls">
+                <div class="form-group" style="flex-grow: 1;">
+                    <input type="text" id="search-query" placeholder="Enter your search query...">
+                </div>
+                <button id="search-btn" onclick="searchTranscriptions()">Search</button>
+                <button id="clear-btn" class="clear-btn" onclick="clearSearch()">Clear</button>
+            </div>
+            
+            <div class="form-group">
+                <label for="source-type">Filter by Source:</label>
+                <select id="source-type">
+                    <option value="">All Sources</option>
+                    <option value="microphone">Microphone</option>
+                    <option value="twilio_call">Twilio Call</option>
+                </select>
+            </div>
+            
+            <div id="search-loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Searching...</p>
+            </div>
+            
+            <div id="search-results" class="result">
+                <p class="note">Enter a search query to find relevant transcriptions.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        let currentSessionId = null;
-        let timerInterval = null;
-        let startTime = null;
-
-        function updateTimer() {
-            const now = new Date();
-            const diff = Math.floor((now - startTime) / 1000);
-            const minutes = Math.floor(diff / 60).toString().padStart(2, '0');
-            const seconds = (diff % 60).toString().padStart(2, '0');
-            document.getElementById('timer').textContent = `${minutes}:${seconds}`;
-        }
-
-        // Load available audio devices
-        async function loadDevices() {
-            try {
-                const response = await fetch('/api/devices');
-                const data = await response.json();
-                const deviceSelect = document.getElementById('device');
-                
-                data.devices.forEach(device => {
-                    const option = document.createElement('option');
-                    option.value = device.id;
-                    option.textContent = device.name;
-                    deviceSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error loading devices:', error);
-                alert('Failed to load audio devices. Please check your microphone connection.');
+        let socket;
+        let currentCallId = null;
+        let reconnectAttempts = 0;
+        let isRecording = false;
+        const maxReconnectAttempts = 5;
+        let selectedSource = "twilio_call";
+        let customSourceName = "";
+        
+        // Initialize page when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCallHistory();
+            console.log("Page loaded, ready for audio input");
+        });
+        
+        // Handle audio source changes
+        function changeAudioSource() {
+            const sourceSelect = document.getElementById('audio-source');
+            selectedSource = sourceSelect.value;
+            
+            const sourceDetails = document.getElementById('source-details');
+            const recordingControls = document.getElementById('recording-controls');
+            
+            if (selectedSource === 'other') {
+                sourceDetails.style.display = 'block';
+                recordingControls.style.display = 'none';
+            } else {
+                sourceDetails.style.display = 'none';
+                recordingControls.style.display = 'block';
             }
         }
-
-        // Start recording
-        async function startRecording() {
-            const deviceIndex = document.getElementById('device').value;
-            const extractKeywords = document.getElementById('extract-keywords').value === 'true';
-            const topN = document.getElementById('top-n').value;
+        
+        // Connect with custom source name
+        function connectCustomSource() {
+            const sourceNameInput = document.getElementById('source-name');
+            customSourceName = sourceNameInput.value.trim();
             
-            try {
-                const response = await fetch('/api/record/start', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        device_index: parseInt(deviceIndex),
-                        extract_keywords: extractKeywords,
-                        top_n: parseInt(topN)
-                    })
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const result = await response.json();
-                currentSessionId = result.session_id;
-                
-                // Update UI
-                document.getElementById('record-btn').style.display = 'none';
-                document.getElementById('stop-btn').style.display = 'block';
-                document.getElementById('recording-status').style.display = 'flex';
-                document.getElementById('timer').style.display = 'block';
-                document.getElementById('device').disabled = true;
-                document.getElementById('extract-keywords').disabled = true;
-                document.getElementById('top-n').disabled = true;
-                
-                // Start timer
-                startTime = new Date();
-                timerInterval = setInterval(updateTimer, 1000);
-                
-            } catch (error) {
-                console.error('Error starting recording:', error);
-                alert('Failed to start recording. Please try again.');
+            if (customSourceName) {
+                selectedSource = 'custom';
+                const recordingControls = document.getElementById('recording-controls');
+                recordingControls.style.display = 'block';
+            } else {
+                alert("Please enter a name for your custom source");
             }
         }
+        
+        // Start recording function
+        function startRecording() {
+            if (isRecording) return;
+            
+            // Hide start button, show stop button
+            document.getElementById('start-recording-btn').style.display = 'none';
+            document.getElementById('stop-recording-btn').style.display = 'block';
+            document.getElementById('recording-status').style.display = 'block';
+            
+            isRecording = true;
+            
+            // Clear result area
+            document.getElementById('result').innerHTML = '<p>Recording started. Transcription will appear here...</p>';
+            document.getElementById('loading').style.display = 'block';
+            
+            // Start microphone capture if microphone source selected
+            if (selectedSource === 'microphone') {
+                startMicrophoneCapture();
+            } else {
+                // For other sources, use the existing WebSocket approach
+                initializeWebSocket();
+            }
+        }
+        
+        // Stop recording function
+        function stopRecording() {
+            if (!isRecording) return;
+            
+            // Show start button, hide stop button
+            document.getElementById('start-recording-btn').style.display = 'block';
+            document.getElementById('stop-recording-btn').style.display = 'none';
+            document.getElementById('recording-status').style.display = 'none';
+            
+            isRecording = false;
+            
+            // Stop the appropriate recording method
+            if (selectedSource === 'microphone') {
+                stopMicrophoneCapture();
+            } else if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.send(JSON.stringify({
+                    type: "stop"
+                }));
+                socket.close();
+            }
+            
+            // Update UI to show recording stopped
+            document.getElementById('loading').style.display = 'none';
+            
+            // After stopping, refresh call history
+            loadCallHistory();
+        }
 
-        // Stop recording
-        async function stopRecording() {
-            if (!currentSessionId) return;
+        // Initialize WebSocket connection with selected source
+        function initializeWebSocket() {
+            reconnectAttempts = 0;
+            connectWebSocket();
+        }
+
+        // Connect to WebSocket with retry logic
+        function connectWebSocket() {
+            // Close existing connection if any
+            if (socket && socket.readyState !== WebSocket.CLOSED) {
+                socket.close();
+            }
+            
+            // Determine WebSocket URL (use wss if on https, ws otherwise)
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsUrl = `${protocol}//${window.location.host}/ws/transcription`;
             
             try {
-                const extractKeywords = document.getElementById('extract-keywords').value === 'true';
-                const topN = parseInt(document.getElementById('top-n').value) || 3; // Default to 3 if invalid
+                socket = new WebSocket(wsUrl);
                 
-                // Validate topN
-                if (isNaN(topN) || topN < 1) {
-                    throw new Error("Number of keywords must be at least 1");
-                }
-                
-                // Show loading state
-                document.getElementById('result-card').style.display = 'block';
-                document.getElementById('loading').style.display = 'block';
-                document.getElementById('result').innerHTML = '';
-                
-                // Disable stop button while processing
-                document.getElementById('stop-btn').disabled = true;
-                document.getElementById('stop-btn').textContent = 'Processing...';
-                
-                const response = await fetch(`/api/record/stop/${currentSessionId}?extract_keywords=${extractKeywords}&top_n=${topN}`, {
-                    method: 'POST'
-                });
-                
-                const contentType = response.headers.get("content-type");
-                let result;
-                let errorMessage;
-                
-                if (contentType && contentType.indexOf("application/json") !== -1) {
-                    result = await response.json();
-                    if (!response.ok) {
-                        errorMessage = result.detail || result.message || `Server error: ${response.status}`;
-                        throw new Error(errorMessage);
-                    }
-                } else {
-                    throw new Error("Server returned non-JSON response");
-                }
-                
-                // Reset recording state
-                currentSessionId = null;
-                clearInterval(timerInterval);
-                
-                // Update UI
-                document.getElementById('record-btn').style.display = 'block';
-                document.getElementById('stop-btn').style.display = 'none';
-                document.getElementById('stop-btn').disabled = false;
-                document.getElementById('stop-btn').textContent = 'Stop Recording';
-                document.getElementById('recording-status').style.display = 'none';
-                document.getElementById('timer').style.display = 'none';
-                document.getElementById('device').disabled = false;
-                document.getElementById('extract-keywords').disabled = false;
-                document.getElementById('top-n').disabled = false;
-                document.getElementById('loading').style.display = 'none';
-                
-                // Display result
-                if (result.utterances && result.utterances.length > 0) {
-                    displayResult(result);
-                } else {
-                    document.getElementById('result').innerHTML = `
-                        <div style="padding: 10px; background-color: #fff3e0; border-radius: 4px; margin-bottom: 10px;">
-                            <strong>Note:</strong> No speech was detected in the recording.
-                        </div>
-                    `;
-                }
-                
-            } catch (error) {
-                console.error('Error stopping recording:', error);
-                
-                // Show error message to user
-                const errorMessage = error.message && error.message !== '[object Object]' 
-                    ? error.message 
-                    : 'Failed to stop recording. Please try again.';
+                socket.onopen = function(e) {
+                    console.log("WebSocket connection established");
                     
-                document.getElementById('result').innerHTML = `
-                    <div style="color: #f44336; padding: 10px; background-color: #ffebee; border-radius: 4px; margin-bottom: 10px;">
-                        <strong>Error:</strong> ${errorMessage}
-                    </div>
-                `;
+                    // Check if element exists before updating
+                    const connectionStatus = document.getElementById('connection-status');
+                    if (connectionStatus) {
+                        connectionStatus.textContent = "Connected";
+                        connectionStatus.className = "status-connected";
+                    }
+                    
+                    // Send start message with source information
+                    const sourceConfig = {
+                        source_type: selectedSource,
+                        source_name: customSourceName || selectedSource,
+                        use_llm: true,
+                        extract_keywords: true
+                    };
+                    
+                    socket.send(JSON.stringify({
+                        type: "start",
+                        config: sourceConfig
+                    }));
+                    
+                    console.log(`Initialized streaming for source: ${selectedSource}`);
+                };
                 
-                // Reset UI
-                currentSessionId = null;
-                clearInterval(timerInterval);
-                document.getElementById('record-btn').style.display = 'block';
-                document.getElementById('stop-btn').style.display = 'none';
-                document.getElementById('stop-btn').disabled = false;
-                document.getElementById('stop-btn').textContent = 'Stop Recording';
-                document.getElementById('recording-status').style.display = 'none';
-                document.getElementById('timer').style.display = 'none';
-                document.getElementById('device').disabled = false;
-                document.getElementById('extract-keywords').disabled = false;
-                document.getElementById('top-n').disabled = false;
-                document.getElementById('loading').style.display = 'none';
+                socket.onmessage = function(event) {
+                    try {
+                        const data = JSON.parse(event.data);
+                        console.log("Received WebSocket message:", data.type);
+                        
+                        if (data.type === "ping") {
+                            // Server is keeping connection alive, no action needed
+                            return;
+                        }
+                        else if (data.type === "session_started") {
+                            // Store the call ID
+                            currentCallId = data.call_id;
+                            console.log(`Session started with ID: ${currentCallId}`);
+                            
+                            // Update status
+                            const statusEl = document.getElementById('status');
+                            if (statusEl) {
+                                statusEl.textContent = `Recording session started (ID: ${currentCallId.substring(0, 8)}...)`;
+                            }
+                        }
+                        else if (data.type === "transcription") {
+                            // Update call ID if not set
+                            if (!currentCallId && data.call_id) {
+                                currentCallId = data.call_id;
+                            }
+                            
+                            // Update transcription display
+                            if (data.utterances && data.utterances.length) {
+                                // Check both result and transcription divs
+                                const resultDiv = document.getElementById('result');
+                                
+                                if (resultDiv) {
+                                    // Add each utterance
+                                    data.utterances.forEach(utterance => {
+                                        const utteranceDiv = document.createElement('div');
+                                        utteranceDiv.className = 'utterance';
+                                        
+                                        // Use speaker_mapping if available, otherwise use the speaker ID
+                                        let speakerName = utterance.speaker;
+                                        if (data.speaker_mapping && data.speaker_mapping[utterance.speaker]) {
+                                            speakerName = data.speaker_mapping[utterance.speaker];
+                                        }
+                                        
+                                        utteranceDiv.innerHTML = `<span class="speaker">${speakerName}:</span> ${utterance.text}`;
+                                        resultDiv.appendChild(utteranceDiv);
+                                    });
+                                    
+                                    // Scroll to bottom
+                                    resultDiv.scrollTop = resultDiv.scrollHeight;
+                                }
+                                
+                                // Also update the transcription div if it exists
+                                const transcriptionDiv = document.getElementById('transcription');
+                                if (transcriptionDiv) {
+                                    data.utterances.forEach(utterance => {
+                                        const utteranceDiv = document.createElement('div');
+                                        utteranceDiv.className = 'utterance';
+                                        
+                                        // Use speaker_mapping if available, otherwise use the speaker ID
+                                        let speakerName = utterance.speaker;
+                                        if (data.speaker_mapping && data.speaker_mapping[utterance.speaker]) {
+                                            speakerName = data.speaker_mapping[utterance.speaker];
+                                        }
+                                        
+                                        utteranceDiv.innerHTML = `<strong>${speakerName}:</strong> ${utterance.text}`;
+                                        transcriptionDiv.appendChild(utteranceDiv);
+                                    });
+                                }
+                            }
+                            
+                            // Update keywords
+                            if (data.keywords && data.keywords.length) {
+                                const keywordsDiv = document.getElementById('keywords');
+                                if (keywordsDiv) {
+                                    keywordsDiv.innerHTML = '<h3>Keywords:</h3>'; // Clear and add title
+                                    
+                                    const keywordsContainer = document.createElement('div');
+                                    keywordsContainer.className = 'keywords-container';
+                                    
+                                    data.keywords.forEach(keyword => {
+                                        const keywordSpan = document.createElement('span');
+                                        keywordSpan.className = 'keyword';
+                                        keywordSpan.textContent = keyword[0]; // keyword[0] is the term, keyword[1] is the score
+                                        keywordsContainer.appendChild(keywordSpan);
+                                    });
+                                    
+                                    keywordsDiv.appendChild(keywordsContainer);
+                                }
+                            }
+                        }
+                        else if (data.type === "insights") {
+                            // Display insights from LLM
+                            const insightsDiv = document.getElementById('insights');
+                            if (insightsDiv) {
+                                insightsDiv.innerHTML = data.insights || "No insights available";
+                            }
+                            if (typeof updateInsights === 'function' && data.insights) {
+                                updateInsights(data.insights);
+                            }
+                        }
+                        else if (data.status === "started") {
+                            console.log(`Stream started for source type: ${data.source_type}`);
+                            const statusEl = document.getElementById('status');
+                            if (statusEl) {
+                                statusEl.textContent = `Listening to ${data.source_type}...`;
+                            }
+                            const loadingEl = document.getElementById('loading');
+                            if (loadingEl) {
+                                loadingEl.style.display = 'none';
+                            }
+                        }
+                        else if (data.status === "stopped") {
+                            console.log("Recording stopped by server");
+                            stopRecording(); // Reset UI
+                        }
+                        else if (data.type === "error") {
+                            console.error("WebSocket error:", data.message);
+                            const statusEl = document.getElementById('status');
+                            if (statusEl) {
+                                statusEl.textContent = `Error: ${data.message}`;
+                            }
+                            // Don't stop recording here, let user decide
+                        }
+                    } catch (e) {
+                        console.error("Error parsing WebSocket message:", e);
+                    }
+                };
+                
+                socket.onclose = function(event) {
+                    if (event.wasClean) {
+                        console.log(`WebSocket connection closed cleanly, code=${event.code}, reason=${event.reason}`);
+                    } else {
+                        console.error('WebSocket connection died');
+                    }
+                    
+                    // Check if element exists before updating
+                    const connectionStatus = document.getElementById('connection-status');
+                    if (connectionStatus) {
+                        connectionStatus.textContent = "Disconnected";
+                        connectionStatus.className = "status-disconnected";
+                    }
+                    
+                    // If still recording when connection closes unexpectedly, try to reconnect
+                    if (isRecording && reconnectAttempts < maxReconnectAttempts) {
+                        reconnectAttempts++;
+                        console.log(`Attempting to reconnect (${reconnectAttempts}/${maxReconnectAttempts})...`);
+                        setTimeout(connectWebSocket, 2000); // Wait 2 seconds before reconnecting
+                    } else if (isRecording) {
+                        console.error("Max reconnection attempts reached");
+                        const statusEl = document.getElementById('status');
+                        if (statusEl) {
+                            statusEl.textContent = "Disconnected. Please refresh the page to reconnect.";
+                        }
+                        stopRecording(); // Reset UI
+                    }
+                };
+                
+                socket.onerror = function(error) {
+                    console.error(`WebSocket error: ${error.message}`);
+                };
+            } catch (e) {
+                console.error("Error initializing WebSocket:", e);
+                const statusEl = document.getElementById('status');
+                if (statusEl) {
+                    statusEl.textContent = `Connection error: ${e.message}`;
+                }
             }
         }
 
-        // Display transcription result
-        function displayResult(result) {
-            const resultDiv = document.getElementById('result');
+        // Function to load call history
+        function loadCallHistory() {
+            const historyDiv = document.getElementById('call-history');
+            if (!historyDiv) {
+                console.error('Call history div not found');
+                return;
+            }
+
+            fetch('/api/recordings')
+                .then(response => response.json())
+                .then(data => {
+                    historyDiv.innerHTML = ''; // Clear existing history
+                    
+                    if (data.recordings && data.recordings.length) {
+                        data.recordings.forEach(recording => {
+                            const recordingDiv = document.createElement('div');
+                            recordingDiv.className = 'recording';
+                            
+                            // Format date
+                            const date = new Date(recording.timestamp);
+                            const formattedDate = date.toLocaleString();
+                            
+                            // Create recording entry with source type
+                            const sourceType = recording.source_type || 'Unknown';
+                            const sourceName = recording.source_name || sourceType;
+                            
+                            recordingDiv.innerHTML = `
+                                <div class="recording-header">
+                                    <span class="recording-source">${sourceName}</span>
+                                    <span class="recording-date">${formattedDate}</span>
+                                </div>
+                                <div class="recording-id">ID: ${recording._id || recording.call_id || 'Unknown'}</div>
+                                <button onclick="viewTranscription('${recording._id || recording.call_id}')">View Transcription</button>
+                            `;
+                            
+                            historyDiv.appendChild(recordingDiv);
+                        });
+                    } else {
+                        historyDiv.innerHTML = '<p>No recordings found</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading call history:', error);
+                    historyDiv.innerHTML = '<p>Error loading call history</p>';
+                });
+        }
+
+        // Function to view transcription for a specific recording
+        function viewTranscription(recordingId) {
+            console.log(`Attempting to view transcription for ID: ${recordingId}`);
             
-            // Clear previous result
-            resultDiv.innerHTML = '';
+            // First switch to the history tab
+            switchTab('history-tab');
             
-            // Display utterances
-            result.utterances.forEach(utterance => {
-                const utteranceDiv = document.createElement('div');
-                utteranceDiv.className = 'utterance';
-                
-                const speakerSpan = document.createElement('span');
-                speakerSpan.className = 'speaker';
-                
-                // Use speaker name if available, otherwise use speaker label
-                const speakerName = result.speaker_mapping[utterance.speaker] || `Speaker ${utterance.speaker}`;
-                speakerSpan.textContent = `${speakerName}: `;
-                
-                const textSpan = document.createElement('span');
-                textSpan.textContent = utterance.text;
-                
-                utteranceDiv.appendChild(speakerSpan);
-                utteranceDiv.appendChild(textSpan);
-                resultDiv.appendChild(utteranceDiv);
+            // Show loading state in result content
+            const resultContent = document.getElementById('result-content');
+            if (resultContent) {
+                resultContent.innerHTML = '<div class="spinner"></div><p>Loading transcription...</p>';
+                resultContent.style.display = 'block';
+            }
+            
+            // Hide call history list while viewing a specific transcription
+            const callHistory = document.getElementById('call-history');
+            if (callHistory) {
+                callHistory.style.display = 'none';
+            }
+            
+            fetch(`/api/recordings/${recordingId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Make sure we have the elements we need
+                    const resultCard = document.getElementById('result-card');
+                    const resultTitle = document.getElementById('result-title');
+                    
+                    if (!resultCard || !resultTitle || !resultContent) {
+                        console.error('Required elements for displaying transcription not found');
+                        return;
+                    }
+                    
+                    console.log("Received transcription data:", data);
+                    
+                    if (data) {
+                        // Format date
+                        const date = new Date(data.timestamp);
+                        const formattedDate = date.toLocaleString();
+                        
+                        // Set title with source information
+                        const sourceType = data.source_type || 'Unknown';
+                        const sourceName = data.source_name || sourceType;
+                        resultTitle.textContent = `${sourceName} - ${formattedDate}`;
+                        
+                        // Set content with all utterances
+                        resultContent.innerHTML = '';
+                        
+                        if (data.utterances && data.utterances.length) {
+                            const transcriptionDiv = document.createElement('div');
+                            transcriptionDiv.className = 'full-transcription';
+                            
+                            data.utterances.forEach(utterance => {
+                                const utteranceDiv = document.createElement('div');
+                                utteranceDiv.className = 'utterance';
+                                
+                                // Use speaker_mapping if available, otherwise use the speaker ID
+                                let speakerName = utterance.speaker;
+                                if (data.speaker_mapping && data.speaker_mapping[utterance.speaker]) {
+                                    speakerName = data.speaker_mapping[utterance.speaker];
+                                }
+                                
+                                utteranceDiv.innerHTML = `<span class="speaker">${speakerName}:</span> ${utterance.text}`;
+                                transcriptionDiv.appendChild(utteranceDiv);
+                            });
+                            
+                            resultContent.appendChild(transcriptionDiv);
+                            
+                            // Add keywords if available
+                            if (data.keywords && data.keywords.length) {
+                                const keywordsDiv = document.createElement('div');
+                                keywordsDiv.className = 'keywords-section';
+                                keywordsDiv.innerHTML = '<h3>Keywords:</h3>';
+                                
+                                const keywordsList = document.createElement('div');
+                                keywordsList.className = 'keywords-list';
+                                
+                                data.keywords.forEach(keyword => {
+                                    const keywordSpan = document.createElement('span');
+                                    keywordSpan.className = 'keyword';
+                                    keywordSpan.textContent = keyword[0];
+                                    keywordsList.appendChild(keywordSpan);
+                                });
+                                
+                                keywordsDiv.appendChild(keywordsList);
+                                resultContent.appendChild(keywordsDiv);
+                            }
+                        } else {
+                            resultContent.innerHTML = '<p>No transcription available for this recording.</p>';
+                        }
+                    } else {
+                        resultContent.innerHTML = '<p>Recording not found or has no data.</p>';
+                    }
+                    
+                    // Add a back button
+                    const backButton = document.createElement('button');
+                    backButton.textContent = 'Back to Call History';
+                    backButton.className = 'back-btn';
+                    backButton.onclick = function() {
+                        resultContent.style.display = 'none';
+                        if (callHistory) {
+                            callHistory.style.display = 'block';
+                        }
+                        resultTitle.textContent = 'Live Transcription';
+                        backButton.remove();
+                    };
+                    
+                    resultContent.appendChild(backButton);
+                })
+                .catch(error => {
+                    console.error('Error loading transcription:', error);
+                    if (resultContent) {
+                        resultContent.innerHTML = `
+                            <p>Error loading transcription: ${error.message}</p>
+                            <button class="back-btn" onclick="switchTab('history-tab')">Back to Call History</button>
+                        `;
+                    }
+                });
+        }
+
+        // Function to close the result card
+        function closeResultCard() {
+            document.getElementById('result-card').style.display = 'none';
+        }
+
+        // Get configuration on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get Twilio number
+            fetch('/api/config')
+                .then(response => response.json())
+                .then(data => {
+                    const twilioNumberEl = document.getElementById('twilioNumber');
+                    if (twilioNumberEl) {
+                        if (data.twilio_number) {
+                            twilioNumberEl.textContent = data.twilio_number;
+                        } else {
+                            twilioNumberEl.textContent = 'Not configured';
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching config:', error);
+                    const twilioNumberEl = document.getElementById('twilioNumber');
+                    if (twilioNumberEl) {
+                        twilioNumberEl.textContent = 'Error loading';
+                    }
+                });
+            
+            // Load call history
+            loadCallHistory();
+            
+            // Show recording controls by default for the default selection
+            const recordingControls = document.getElementById('recording-controls');
+            if (recordingControls) {
+                recordingControls.style.display = 'block';
+            }
+            
+            // Initialize connection status elements
+            const connectionStatus = document.getElementById('connection-status');
+            if (connectionStatus) {
+                connectionStatus.textContent = "Disconnected";
+                connectionStatus.className = "status-disconnected";
+            }
+            
+            const statusEl = document.getElementById('status');
+            if (statusEl) {
+                statusEl.textContent = "Ready";
+            }
+        });
+        
+        // Added function to switch tabs
+        function switchTab(tabId) {
+            console.log(`Switching to tab: ${tabId}`);
+            
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
             });
             
-            // Display keywords if available
-            if (result.keywords && result.keywords.length > 0) {
-                const keywordsDiv = document.createElement('div');
-                keywordsDiv.className = 'keywords';
+            // Deactivate all tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show the selected tab content and activate its button
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            const button = document.querySelector(`.tab-button[onclick="switchTab('${tabId}')"]`);
+            if (button) {
+                button.classList.add('active');
+            }
+            
+            // Additional handling for history tab
+            if (tabId === 'history-tab') {
+                // Reset history view
+                const callHistory = document.getElementById('call-history');
+                const resultContent = document.getElementById('result-content');
                 
-                result.keywords.forEach(keyword => {
-                    const keywordSpan = document.createElement('span');
-                    keywordSpan.className = 'keyword';
-                    keywordSpan.textContent = `${keyword[0]} (${keyword[1].toFixed(2)})`;
-                    keywordsDiv.appendChild(keywordSpan);
-                });
+                if (callHistory) {
+                    callHistory.style.display = 'block';
+                }
                 
-                resultDiv.appendChild(keywordsDiv);
+                if (resultContent) {
+                    resultContent.style.display = 'none';
+                }
+                
+                // Refresh call history when switching to history tab
+                loadCallHistory();
             }
         }
+        
+        // Enhanced function to search transcriptions
+        function searchTranscriptions(topicQuery) {
+            const searchInput = document.getElementById('search-query');
+            let query = searchInput.value.trim();
+            
+            // If a topic was clicked, use that as the query
+            if (topicQuery) {
+                query = topicQuery;
+                searchInput.value = topicQuery;
+            }
+            
+            const sourceType = document.getElementById('source-type').value;
+            
+            if (!query) {
+                alert('Please enter a search query');
+                return;
+            }
+            
+            const searchResults = document.getElementById('search-results');
+            const searchLoading = document.getElementById('search-loading');
+            
+            // Show loading spinner
+            searchResults.innerHTML = '';
+            searchLoading.style.display = 'block';
+            
+            // Build query parameters
+            let params = new URLSearchParams();
+            params.append('query', query);
+            params.append('n_results', '5');
+            
+            if (sourceType) {
+                params.append('source_type', sourceType);
+            }
+            
+            // Fetch search results
+            fetch(`/api/rag/search?${params.toString()}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Search failed');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    searchLoading.style.display = 'none';
+                    
+                    if (!data.results || data.results.length === 0) {
+                        searchResults.innerHTML = '<p class="note">No results found for your query.</p>';
+                        return;
+                    }
+                    
+                    let html = `<h3>Search Results for: "${query}"</h3>`;
+                    
+                    for (const result of data.results) {
+                        const source = result.metadata?.source_type || 'unknown';
+                        const date = result.metadata?.timestamp ? new Date(result.metadata.timestamp).toLocaleString() : 'Unknown date';
+                        const sourceIcon = source === 'microphone' ? '🎤' : '📞';
+                        
+                        html += `
+                            <div class="recording">
+                                <h3>${sourceIcon} ${source.charAt(0).toUpperCase() + source.slice(1)} Recording</h3>
+                                <p><strong>Date:</strong> ${date}</p>
+                                <div class="transcript-container">
+                                    <p>${highlightSearchTerms(result.text, query)}</p>
+                                </div>
+                                <div style="margin-top:10px;">
+                                    ${result.metadata?.mongodb_id ? `<button onclick="viewTranscription('${result.metadata.mongodb_id}')">View Full Transcription</button>` : ''}
+                                    ${result.id ? `<button onclick="findSimilar('${result.id}')">Find Similar</button>` : ''}
+                                </div>
+                        </div>
+                    `;
+                    }
+                    
+                    searchResults.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error searching transcriptions:', error);
+                    searchLoading.style.display = 'none';
+                    searchResults.innerHTML = `<p class="note">Error searching transcriptions: ${error.message}</p>`;
+                });
+        }
+        
+        // Function to highlight search terms in text
+        function highlightSearchTerms(text, searchTerm) {
+            if (!searchTerm) return text;
+            
+            const terms = searchTerm.split(' ').filter(term => term.length > 2);
+            let highlightedText = text;
+            
+            for (const term of terms) {
+                const regex = new RegExp(`(${term})`, 'gi');
+                highlightedText = highlightedText.replace(regex, '<mark>$1</mark>');
+            }
+            
+            return highlightedText;
+        }
+        
+        // Function to clear search
+        function clearSearch() {
+            document.getElementById('search-query').value = '';
+            document.getElementById('search-results').innerHTML = '<p class="note">Enter a search query to find relevant transcriptions.</p>';
+        }
+        
+        // RAG Search Functions
+        function findSimilar(transcriptionId) {
+            const searchResults = document.getElementById('search-results');
+            const searchLoading = document.getElementById('search-loading');
+            
+            // Show loading spinner
+            searchResults.innerHTML = '';
+            searchLoading.style.display = 'block';
+            
+            // Fetch similar transcriptions
+            fetch(`/api/rag/similar/${transcriptionId}?n_results=5`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to find similar transcriptions');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    searchLoading.style.display = 'none';
+                    
+                    if (!data.similar_transcriptions || data.similar_transcriptions.length === 0) {
+                        searchResults.innerHTML = '<p class="note">No similar transcriptions found.</p>';
+                        return;
+                    }
+                    
+                    let html = '<h3>Similar Transcriptions</h3>';
+                    
+                    for (const result of data.similar_transcriptions) {
+                        const source = result.metadata?.source_type || 'unknown';
+                        const date = result.metadata?.timestamp ? new Date(result.metadata.timestamp).toLocaleString() : 'Unknown date';
+                        
+                        html += `
+                            <div class="recording">
+                                <p><strong>Source:</strong> ${source}</p>
+                                <p><strong>Date:</strong> ${date}</p>
+                                <p><strong>Content:</strong> ${result.text.substring(0, 200)}${result.text.length > 200 ? '...' : ''}</p>
+                                ${result.metadata?.mongodb_id ? `<button onclick="viewTranscription('${result.metadata.mongodb_id}')">View Full Transcription</button>` : ''}
+                            </div>
+                        `;
+                    }
+                    
+                    searchResults.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error finding similar transcriptions:', error);
+                    searchLoading.style.display = 'none';
+                    searchResults.innerHTML = `<p class="note">Error finding similar transcriptions: ${error.message}</p>`;
+                });
+        }
+        
+        // Add enter key support for search
+        document.getElementById('search-query').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                searchTranscriptions();
+            }
+        });
+        
+        // Handle insights
+        function updateInsights(insights) {
+            const insightsContent = document.getElementById('insights-content');
+            
+            // Create insight card
+            const insightCard = document.createElement('div');
+            insightCard.className = 'insight';
+            
+            // Add insight title
+            const title = document.createElement('div');
+            title.className = 'insight-title';
+            title.textContent = 'AI Analysis';
+            insightCard.appendChild(title);
+            
+            // Add insight content
+            const content = document.createElement('div');
+            content.className = 'insight-response';
+            content.textContent = insights;
+            insightCard.appendChild(content);
+            
+            // Replace current content with new insight
+            insightsContent.innerHTML = '';
+            insightsContent.appendChild(insightCard);
+        }
+        
+        // Ask a question about the current conversation
+        function askInsightQuestion() {
+            const query = document.getElementById('insight-query').value.trim();
+            if (!query) {
+                alert('Please enter a question');
+                return;
+            }
+            
+            const insightsContent = document.getElementById('insights-content');
+            const insightsLoading = document.getElementById('insights-loading');
+            
+            // Show loading spinner
+            insightsLoading.style.display = 'block';
+            
+            // Get the current transcription
+            const resultDiv = document.getElementById('result');
+            const transcriptionText = resultDiv.innerText;
+            
+            // Only proceed if we have enough text
+            if (transcriptionText.length < 50 || transcriptionText.includes('No active call')) {
+                insightsLoading.style.display = 'none';
+                alert('Not enough conversation text to analyze. Please wait for more conversation.');
+                return;
+            }
+            
+            // Extract keywords from the transcription
+            // This is a simplified approach - you could use the actual keywords from the websocket
+            const keywordElements = document.querySelectorAll('.keyword');
+            const keywords = Array.from(keywordElements).map(el => {
+                const text = el.textContent;
+                // Remove the score part "(0.XX)"
+                return text.split(' (')[0];
+            });
+            
+            // Call the API
+            fetch('/api/rag/live', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    transcription_text: transcriptionText,
+                    query: query,
+                    keywords: keywords
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to get insight');
+                }
+                return response.json();
+            })
+            .then(data => {
+                insightsLoading.style.display = 'none';
+                
+                // Create insight card
+                const insightCard = document.createElement('div');
+                insightCard.className = 'insight';
+                
+                // Add insight title
+                const title = document.createElement('div');
+                title.className = 'insight-title';
+                title.textContent = 'Response to Your Question';
+                insightCard.appendChild(title);
+                
+                // Add question
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'insight-query';
+                questionDiv.textContent = `Question: ${query}`;
+                insightCard.appendChild(questionDiv);
+                
+                // Add response
+                const responseDiv = document.createElement('div');
+                responseDiv.className = 'insight-response';
+                responseDiv.textContent = data.response;
+                insightCard.appendChild(responseDiv);
+                
+                // Replace current content with new insight
+                insightsContent.innerHTML = '';
+                insightsContent.appendChild(insightCard);
+                
+                // Clear the input
+                document.getElementById('insight-query').value = '';
+            })
+            .catch(error => {
+                console.error('Error asking question:', error);
+                insightsLoading.style.display = 'none';
+                alert(`Error: ${error.message}`);
+            });
+        }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            loadDevices();
-            document.getElementById('record-btn').addEventListener('click', startRecording);
-            document.getElementById('stop-btn').addEventListener('click', stopRecording);
+        // Add event listener for transcription events from microphone capture
+        document.addEventListener('transcription-received', function(event) {
+            const data = event.detail;
+            
+            // Update call ID if not set
+            if (!currentCallId && data.call_id) {
+                currentCallId = data.call_id;
+            }
+            
+            // Update transcription display
+            if (data.utterances && data.utterances.length) {
+                // Check both result and transcription divs
+                const resultDiv = document.getElementById('result');
+                
+                if (resultDiv) {
+                    // Add each utterance
+                    data.utterances.forEach(utterance => {
+                        const utteranceDiv = document.createElement('div');
+                        utteranceDiv.className = 'utterance';
+                        
+                        // Use speaker_mapping if available, otherwise use the speaker ID
+                        let speakerName = utterance.speaker;
+                        if (data.speaker_mapping && data.speaker_mapping[utterance.speaker]) {
+                            speakerName = data.speaker_mapping[utterance.speaker];
+                        }
+                        
+                        utteranceDiv.innerHTML = `<span class="speaker">${speakerName}:</span> ${utterance.text}`;
+                        resultDiv.appendChild(utteranceDiv);
+                    });
+                    
+                    // Scroll to bottom
+                    resultDiv.scrollTop = resultDiv.scrollHeight;
+                }
+                
+                // Also update the transcription div if it exists
+                const transcriptionDiv = document.getElementById('transcription');
+                if (transcriptionDiv) {
+                    data.utterances.forEach(utterance => {
+                        const utteranceDiv = document.createElement('div');
+                        utteranceDiv.className = 'utterance';
+                        
+                        // Use speaker_mapping if available, otherwise use the speaker ID
+                        let speakerName = utterance.speaker;
+                        if (data.speaker_mapping && data.speaker_mapping[utterance.speaker]) {
+                            speakerName = data.speaker_mapping[utterance.speaker];
+                        }
+                        
+                        utteranceDiv.innerHTML = `<strong>${speakerName}:</strong> ${utterance.text}`;
+                        transcriptionDiv.appendChild(utteranceDiv);
+                    });
+                }
+            }
+            
+            // Update keywords
+            if (data.keywords && data.keywords.length) {
+                const keywordsDiv = document.getElementById('keywords');
+                if (keywordsDiv) {
+                    keywordsDiv.innerHTML = '<h3>Keywords:</h3>'; // Clear and add title
+                    
+                    const keywordsContainer = document.createElement('div');
+                    keywordsContainer.className = 'keywords-container';
+                    
+                    data.keywords.forEach(keyword => {
+                        const keywordSpan = document.createElement('span');
+                        keywordSpan.className = 'keyword';
+                        keywordSpan.textContent = keyword[0]; // keyword[0] is the term, keyword[1] is the score
+                        keywordsContainer.appendChild(keywordSpan);
+                    });
+                    
+                    keywordsDiv.appendChild(keywordsContainer);
+                }
+            }
         });
     </script>
 </body>
